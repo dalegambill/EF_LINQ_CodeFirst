@@ -110,12 +110,12 @@
             // 
             // tbPostsInfo
             // 
-            this.tbPostsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPostsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPostsInfo.Location = new System.Drawing.Point(12, 485);
             this.tbPostsInfo.Multiline = true;
             this.tbPostsInfo.Name = "tbPostsInfo";
             this.tbPostsInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbPostsInfo.Size = new System.Drawing.Size(1122, 242);
+            this.tbPostsInfo.Size = new System.Drawing.Size(1233, 242);
             this.tbPostsInfo.TabIndex = 8;
             // 
             // label4
@@ -171,12 +171,12 @@
             // 
             // tbBlogsInfo
             // 
-            this.tbBlogsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBlogsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBlogsInfo.Location = new System.Drawing.Point(12, 215);
             this.tbBlogsInfo.Multiline = true;
             this.tbBlogsInfo.Name = "tbBlogsInfo";
             this.tbBlogsInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbBlogsInfo.Size = new System.Drawing.Size(1122, 223);
+            this.tbBlogsInfo.Size = new System.Drawing.Size(1233, 223);
             this.tbBlogsInfo.TabIndex = 14;
             // 
             // btnListBlogs
@@ -235,7 +235,7 @@
             // 
             this.pnlStatus.Controls.Add(this.laStatus);
             this.pnlStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlStatus.Location = new System.Drawing.Point(950, 15);
+            this.pnlStatus.Location = new System.Drawing.Point(1008, 15);
             this.pnlStatus.Name = "pnlStatus";
             this.pnlStatus.Size = new System.Drawing.Size(155, 97);
             this.pnlStatus.TabIndex = 20;
@@ -244,6 +244,7 @@
             // 
             // btnUpdateBlog
             // 
+            this.btnUpdateBlog.Enabled = false;
             this.btnUpdateBlog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateBlog.Location = new System.Drawing.Point(629, 13);
             this.btnUpdateBlog.Name = "btnUpdateBlog";
@@ -254,6 +255,7 @@
             // 
             // btnDeleteBlog
             // 
+            this.btnDeleteBlog.Enabled = false;
             this.btnDeleteBlog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteBlog.Location = new System.Drawing.Point(778, 15);
             this.btnDeleteBlog.Name = "btnDeleteBlog";
@@ -271,6 +273,7 @@
             this.btnUpdatePost.TabIndex = 23;
             this.btnUpdatePost.Text = "Update Post";
             this.btnUpdatePost.UseVisualStyleBackColor = true;
+            this.btnUpdatePost.Click += new System.EventHandler(this.btnUpdatePost_Click);
             // 
             // btnDeletePost
             // 
@@ -281,12 +284,13 @@
             this.btnDeletePost.TabIndex = 24;
             this.btnDeletePost.Text = "Delete Post";
             this.btnDeletePost.UseVisualStyleBackColor = true;
+            this.btnDeletePost.Click += new System.EventHandler(this.btnDeletePost_Click);
             // 
             // EF_LINQ_WinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1145, 755);
+            this.ClientSize = new System.Drawing.Size(1257, 755);
             this.Controls.Add(this.btnDeletePost);
             this.Controls.Add(this.btnUpdatePost);
             this.Controls.Add(this.btnDeleteBlog);

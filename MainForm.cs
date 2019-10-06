@@ -51,9 +51,7 @@ namespace EF_LINQ_CodeFirst
                     bloggingContext.Blogs.Add(blog);
                     bloggingContext.SaveChanges();
                     tbBlogsInfo.Text += string.Format("New Blog:    Name: {0}    ID: {1}\r\n", blog.Name, blog.BlogId.ToString());
-                    // scroll up
-                    tbBlogsInfo.SelectionStart = tbBlogsInfo.Text.Length;
-                    tbBlogsInfo.ScrollToCaret();
+                    ScrollUpBlogsInfo();
                 }
                 catch (Exception error)
                 {
@@ -74,9 +72,7 @@ namespace EF_LINQ_CodeFirst
             foreach (var aBlog in queryBlogs)
             {
                 tbBlogsInfo.Text += "BlogId: " + aBlog.BlogId.ToString() + "    Name: " + aBlog.Name + "\r\n";
-                // scroll up
-                tbBlogsInfo.SelectionStart = tbBlogsInfo.Text.Length;
-                tbBlogsInfo.ScrollToCaret();
+                ScrollUpBlogsInfo();
             }
             SetIdleState();
         }
@@ -133,9 +129,7 @@ namespace EF_LINQ_CodeFirst
                     bloggingContext.SaveChanges();
                     tbPostsInfo.Text += string.Format("New Post:    ID: {0}   Title: {1}    Content: {2}    Blog ID: {3}\r\n",
                                                        post.PostId.ToString(), post.Title, post.Content, post.BlogId.ToString());
-                    // scroll up
-                    tbPostsInfo.SelectionStart = tbPostsInfo.Text.Length;
-                    tbPostsInfo.ScrollToCaret();
+                    ScrollUpPostsInfo();
                 }
                 catch ( Exception error )
                 {
@@ -157,11 +151,21 @@ namespace EF_LINQ_CodeFirst
             {
                 tbPostsInfo.Text += "PostId: " + aPost.PostId.ToString() + "    Title: " + aPost.Title + "    Content: " + aPost.Content  + 
                                     "    Blog ID: " + aPost.BlogId.ToString() +  "\r\n";
-                // scroll up
-                tbPostsInfo.SelectionStart = tbPostsInfo.Text.Length;
-                tbPostsInfo.ScrollToCaret();
+                ScrollUpPostsInfo();
             }
             SetIdleState();
+        }
+
+        void ScrollUpBlogsInfo()
+        {
+            tbBlogsInfo.SelectionStart = tbBlogsInfo.Text.Length;
+            tbBlogsInfo.ScrollToCaret();
+        }
+
+        void ScrollUpPostsInfo()
+        {
+            tbPostsInfo.SelectionStart = tbPostsInfo.Text.Length;
+            tbPostsInfo.ScrollToCaret();
         }
 
         private void BtnClearBlogsInfo_Click(object sender, EventArgs e)
@@ -174,6 +178,61 @@ namespace EF_LINQ_CodeFirst
             tbPostsInfo.Clear();
         }
 
+        private void btnUpdatePost_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(tbPostContent.Text) || String.IsNullOrEmpty(tbPostTitle.Text))
+            {
+                tbPostsInfo.Text += "'Post Title' and 'Post Content' cannot be empty.\r\n";
+                ScrollUpPostsInfo();
+                return;
+            }
+
+            try
+            {
+                var postToUpdate = bloggingContext.Posts.First(a => a.Title == tbPostTitle.Text);
+                if (postToUpdate != null)
+                {
+                    tbPostsInfo.Text += "Title: " + postToUpdate.Title + "    Post ID: " + postToUpdate.PostId + "\r\n";
+                    ScrollUpPostsInfo();
+                    tbPostsInfo.Text += "Content: " + postToUpdate.Content + "    Changed to: " + tbPostContent.Text + "\r\n";
+                    ScrollUpPostsInfo();
+                    postToUpdate.Content = tbPostContent.Text;
+                    bloggingContext.SaveChanges();
+                }
+            }
+            catch( Exception exception )
+            {
+                tbPostsInfo.Text += "Error: " + exception.Message + "\r\n";
+                ScrollUpPostsInfo();
+            }
+        }
+
+        private void btnDeletePost_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(tbPostTitle.Text))
+            {
+                tbPostsInfo.Text += "'Post Title' cannot be empty.\r\n";
+                ScrollUpPostsInfo();
+                return;
+            }
+
+            try
+            {
+                var postToDelete = bloggingContext.Posts.Where(p => p.Title == tbPostTitle.Text).FirstOrDefault();
+                if (postToDelete != null)
+                {
+                    bloggingContext.Posts.Remove(postToDelete);
+                    bloggingContext.SaveChanges();
+                    tbPostsInfo.Text += "Record deleted:    " + "Title: " + postToDelete.Title + "    Post ID: " + postToDelete.PostId + "\r\n";
+                    ScrollUpPostsInfo();
+                }
+            }
+            catch( Exception exception )
+            {
+                tbPostsInfo.Text += "Error: " + exception.Message + "\r\n";
+                ScrollUpPostsInfo();
+            }
+        }
         private void SetWorkingState()
         {
             laStatus.ForeColor = System.Drawing.Color.Red;
@@ -183,8 +242,8 @@ namespace EF_LINQ_CodeFirst
             btnListBlogs.Enabled = false;
             btnAddPost.Enabled = false;
             btnListPosts.Enabled = false;
-            btnUpdateBlog.Enabled = false;
-            btnDeleteBlog.Enabled = false;
+            //btnUpdateBlog.Enabled = false;
+            //btnDeleteBlog.Enabled = false;
             btnUpdatePost.Enabled = false;
             btnDeletePost.Enabled = false;
         }
@@ -197,11 +256,10 @@ namespace EF_LINQ_CodeFirst
             btnListBlogs.Enabled = true;
             btnAddPost.Enabled = true;
             btnListPosts.Enabled = true;
-            btnUpdateBlog.Enabled = true;
-            btnDeleteBlog.Enabled = true;
+            //btnUpdateBlog.Enabled = true;
+            //btnDeleteBlog.Enabled = true;
             btnUpdatePost.Enabled = true;
             btnDeletePost.Enabled = true;
         }
-
     }
 }
