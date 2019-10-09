@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
@@ -260,6 +260,19 @@ namespace EF_LINQ_CodeFirst
             //btnDeleteBlog.Enabled = true;
             btnUpdatePost.Enabled = true;
             btnDeletePost.Enabled = true;
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show( "This is a C# working code tutorial. It uses Entity Framework 6.2, LINQ, and code-first to create " +
+                             "a database in SQL Server 2017. It was developed using Visual Studio Community 2019." +
+                             "The entire project is at https://github.com/dalegambill/EF_LINQ_CodeFirst.", "Working Code Tutorials" );
+
+        }
+
+        private void btnVideo_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.youtube.com/channel/UCouhHzMMU9c-Qh-TkZl5GDg");
         }
     }
 }

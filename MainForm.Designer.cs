@@ -51,6 +51,8 @@
             this.btnDeleteBlog = new System.Windows.Forms.Button();
             this.btnUpdatePost = new System.Windows.Forms.Button();
             this.btnDeletePost = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
+            this.btnVideo = new System.Windows.Forms.Button();
             this.pnlStatus.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -205,7 +207,7 @@
             // 
             this.laStatus.AutoSize = true;
             this.laStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laStatus.Location = new System.Drawing.Point(47, 41);
+            this.laStatus.Location = new System.Drawing.Point(52, 30);
             this.laStatus.Name = "laStatus";
             this.laStatus.Size = new System.Drawing.Size(35, 20);
             this.laStatus.TabIndex = 17;
@@ -237,7 +239,7 @@
             this.pnlStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlStatus.Location = new System.Drawing.Point(1008, 15);
             this.pnlStatus.Name = "pnlStatus";
-            this.pnlStatus.Size = new System.Drawing.Size(155, 97);
+            this.pnlStatus.Size = new System.Drawing.Size(155, 68);
             this.pnlStatus.TabIndex = 20;
             this.pnlStatus.TabStop = false;
             this.pnlStatus.Text = "Status";
@@ -286,11 +288,35 @@
             this.btnDeletePost.UseVisualStyleBackColor = true;
             this.btnDeletePost.Click += new System.EventHandler(this.btnDeletePost_Click);
             // 
+            // btnAbout
+            // 
+            this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbout.Location = new System.Drawing.Point(1024, 99);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(115, 37);
+            this.btnAbout.TabIndex = 25;
+            this.btnAbout.Text = "About";
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
+            // btnVideo
+            // 
+            this.btnVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVideo.Location = new System.Drawing.Point(1024, 152);
+            this.btnVideo.Name = "btnVideo";
+            this.btnVideo.Size = new System.Drawing.Size(115, 37);
+            this.btnVideo.TabIndex = 26;
+            this.btnVideo.Text = "Videos";
+            this.btnVideo.UseVisualStyleBackColor = true;
+            this.btnVideo.Click += new System.EventHandler(this.btnVideo_Click);
+            // 
             // EF_LINQ_WinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1257, 755);
+            this.Controls.Add(this.btnVideo);
+            this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnDeletePost);
             this.Controls.Add(this.btnUpdatePost);
             this.Controls.Add(this.btnDeleteBlog);
@@ -348,6 +374,8 @@
         private System.Windows.Forms.Button btnDeleteBlog;
         private System.Windows.Forms.Button btnUpdatePost;
         private System.Windows.Forms.Button btnDeletePost;
+        private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Button btnVideo;
     }
 }
 
