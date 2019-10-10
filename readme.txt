@@ -10,6 +10,6 @@ This is a Windows 10 desktop program written in C# using Visual Studio Community
 
 - In App.Config, demonstrates the correct connection string for accessing the SQL Server database. You could use a 'local database server', which Entity Framework assumes as a default, but I prefer using SQL Server, since that is Microsoft's mainstream database server. Note: A SQL Server database is only accessed through a server, a local database is local to your application only.
 
-- The related YouTube video (link goes here) gives some tips on installing SQL Server, since this project uses that database server.
+- The related YouTube video link is: https://youtu.be/xYYmRn5pFM4.
 
   
